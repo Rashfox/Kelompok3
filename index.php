@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>ETournament</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
     <nav>
         <ul class="nav">
             <li><a href="index.php" class="menu">Home</a></li>
-            <li><a href="caster.php" class="menu">Caster</a></li>
+            <li><a href="" class="menu">Caster</a></li>
             <li><a href="" class="menu">Panitia</a></li>
             <li><a href="" class="menu">Show</a></li>
             <li><a href="" class="menu">About</a></li>
