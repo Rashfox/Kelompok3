@@ -15,14 +15,13 @@
             <li><a href="index.php" class="menu">Home</a></li>
             <li><a href="caster.php" class="menu">Caster</a></li>
             <li><a href="" class="menu">Panitia</a></li>
-            <li><a href="" class="menu">Show</a></li>
             <li><a href="" class="menu">About</a></li>
         </ul>
     </nav>
     <main>
     <h2>Selamat Datang Di Website ETournament</h2>
     <h2>Daftar Turnamen Esport</h2>
-    <table border="1" cellpadding="10" cellspacing="0">
+    <table border="1" cellpadding="10" cellspacing="0" align="center">
         <thead>
         <tr>
             <th>Nama Turnamen</th>
