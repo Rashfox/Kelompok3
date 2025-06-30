@@ -3,7 +3,6 @@ session_start();
 
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Contoh data user (ganti dengan data dari database pada implementasi nyata)
     $valid_username = 'admin';
     $valid_password = 'admin';
 
@@ -12,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($username === $valid_username && $password === $valid_password) {
         $_SESSION['username'] = $username;
-        header('Location: index.php');
+        header('Location: header.php');
         exit;
     } else {
         $error = 'Username atau password salah!';
