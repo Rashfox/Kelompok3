@@ -29,7 +29,6 @@
             <th>Game</th>
             <th>Tanggal</th>
             <th>Lokasi</th>
-            <th>Aksi</th>
         </tr>
         </thead>
         <tbody>
@@ -38,21 +37,18 @@
             <td>Mobile Legends</td>
             <td>10 Juli 2025</td>
             <td>Jakarta</td>
-            <td><a href="index.php?tournament=etournament-cup-2025">Detail</a></td>
         </tr>
         <tr>
             <td>Battle Arena</td>
             <td>PUBG Mobile</td>
             <td>20 Agustus 2025</td>
             <td>Bandung</td>
-            <td><a href="index.php?tournament=battle-arena">Detail</a></td>
         </tr>
         <tr>
             <td>Champions League</td>
             <td>Valorant</td>
             <td>5 September 2025</td>
             <td>Surabaya</td>
-            <td><a href="index.php?tournament=champions-league">Detail</a></td>
         </tr>
         </tbody>
     </table>
