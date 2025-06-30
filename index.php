@@ -67,3 +67,6 @@
     <script url="script.js"></script>
 </body>
 </html>
+<?php
+
+?>
