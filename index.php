@@ -14,8 +14,8 @@
         <ul class="nav">
             <li><a href="index.php" class="menu">Home</a></li>
             <li><a href="caster.php" class="menu">Caster</a></li>
-            <li><a href="" class="menu">Panitia</a></li>
-            <li><a href="" class="menu">About</a></li>
+            <li><a href="panitia.php" class="menu">Panitia</a></li>
+            <li><a href="about.php" class="menu">About</a></li>
         </ul>
     </nav>
     <main>
