@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="hidden" name="action" value="add">
             <label for="nama">Nama Caster:</label><br>
             <input type="text" id="nama" name="nama" placeholder="Nama Caster" required><br><br>
-            <label for="kontak">Kontak:</label><br>
+            <label for="kontak">Kontak Caster:</label><br>
             <input type="text" id="kontak" name="kontak" placeholder="Kontak Caster" required><br><br>
             <button type="submit">Tambah Caster</button>
         </form>
