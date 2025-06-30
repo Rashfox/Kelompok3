@@ -137,6 +137,38 @@ class PanitiaCircularList {
         }
     }
 
+    public function remove($data) {
+        if (!$this->head) return false;
+
+        $current = $this->head;
+        $prev = $this->tail;
+
+        if ($current->next === $this->head && $current->data === $data) {
+            $this->head = null;
+            $this->tail = null;
+            return true;
+        }
+
+        do {
+            if ($current->data === $data) {
+                if ($current === $this->head) {
+                    $this->head = $current->next;
+                    $this->tail->next = $this->head;
+                } elseif ($current === $this->tail) {
+                    $this->tail = $prev;
+                    $this->tail->next = $this->head;
+                } else {
+                    $prev->next = $current->next;
+                }
+                return true;
+            }
+            $prev = $current;
+            $current = $current->next;
+        } while ($current !== $this->head);
+
+        return false;
+    }
+
     public function current() {
         return $this->head ? $this->head->data : null;
     }
