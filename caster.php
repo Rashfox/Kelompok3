@@ -1,16 +1,15 @@
 <?php
 session_start();
-require_once 'function.php'; // Mengimpor class dari function.php
+require_once 'function.php';
 
-// Inisialisasi objek jika belum ada di session
+// Inisialisasi list jika belum ada
 if (!isset($_SESSION['caster_list'])) {
     $_SESSION['caster_list'] = serialize(new CasterCircularList());
 }
 
-// Ambil dari session dan unserialize
 $casterList = unserialize($_SESSION['caster_list']);
 
-// Tangani form add
+// Tangani aksi form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'];
 
@@ -20,12 +19,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $casterList->add(['nama' => $nama, 'kontak' => $kontak]);
     } elseif ($action === 'rotate') {
         $casterList->rotate();
+    } elseif ($action === 'delete') {
+        $nama = $_POST['nama'];
+        $kontak = $_POST['kontak'];
+
+        $casters = $casterList->display();
+        foreach ($casters as $c) {
+            if ($c['nama'] === $nama && $c['kontak'] === $kontak) {
+                $casterList->remove($c);
+                break;
+            }
+        }
     }
 
     // Simpan kembali ke session
     $_SESSION['caster_list'] = serialize($casterList);
 
-    // Hindari form resubmission saat refresh
+    // Hindari resubmission saat refresh
     header("Location: caster.php");
     exit();
 }
@@ -71,7 +81,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<li>Belum ada caster ditambahkan.</li>";
             } else {
                 foreach ($casters as $c) {
-                    echo "<li>Nama: " . htmlspecialchars($c['nama']) . " | Kontak: " . htmlspecialchars($c['kontak']) . "</li>";
+                    echo "<li>Nama: " . htmlspecialchars($c['nama']) . " | Kontak: " . htmlspecialchars($c['kontak']);
+                    echo " 
+                        <form action='caster.php' method='post' style='display:inline'>
+                            <input type='hidden' name='action' value='delete'>
+                            <input type='hidden' name='nama' value='" . htmlspecialchars($c['nama']) . "'>
+                            <input type='hidden' name='kontak' value='" . htmlspecialchars($c['kontak']) . "'>
+                            <button type='submit'>Hapus</button>
+                        </form>
+                    </li>";
                 }
             }
             ?>
@@ -86,7 +104,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>
             <?php
             $current = $casterList->current();
-            echo $current ? "Nama: " . htmlspecialchars($current['nama']) . " | Kontak: " . htmlspecialchars($current['kontak']) : "Tidak ada caster.";
+            echo $current
+                ? "Nama: " . htmlspecialchars($current['nama']) . " | Kontak: " . htmlspecialchars($current['kontak'])
+                : "Tidak ada caster.";
             ?>
         </p>
     </main>

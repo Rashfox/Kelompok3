@@ -43,6 +43,43 @@ class CasterCircularList {
             $this->head = $this->head->next;
         }
     }
+    public function remove($data) {
+        if (!$this->head) return false;
+
+        $current = $this->head;
+        $prev = null;
+
+        // Single node case
+        if ($current->next === $this->head && $current->data === $data) {
+            $this->head = null;
+            return true;
+        }
+
+        do {
+            if ($current->data === $data) {
+                if ($prev) {
+                    $prev->next = $current->next;
+                    // If head is being removed, move head
+                    if ($current === $this->head) {
+                        $this->head = $current->next;
+                    }
+                } else {
+                    // Removing head, find last node to update its next
+                    $last = $this->head;
+                    while ($last->next !== $this->head) {
+                        $last = $last->next;
+                    }
+                    $this->head = $current->next;
+                    $last->next = $this->head;
+                }
+                return true;
+            }
+            $prev = $current;
+            $current = $current->next;
+        } while ($current !== $this->head);
+
+        return false;
+    }
 
     public function current() {
         return $this->head ? $this->head->data : null;
