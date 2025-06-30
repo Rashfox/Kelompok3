@@ -6,7 +6,6 @@
     justify-content: center;
     align-items: center;
     background-color: #0000001a;
-    padding: 10px 0;
 }
 header {
     background: rgb(49, 106, 212);
@@ -23,7 +22,6 @@ nav ul.nav {
     padding: 0;
     height: 50px;
 }
-
 .menu {
     padding: 10px 20px;
     color: white;
@@ -32,7 +30,6 @@ nav ul.nav {
     justify-content: center;
     text-align: center;
 }
-
 .menu:hover {
     background-color: white;
     color: black;
