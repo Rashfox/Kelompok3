@@ -66,9 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form action="caster.php" method="post">
             <input type="hidden" name="action" value="add">
             <label for="nama">Nama Caster:</label><br>
-            <input type="text" id="nama" name="nama" required><br><br>
+            <input type="text" id="nama" name="nama" placeholder="Nama Caster" required><br><br>
             <label for="kontak">Kontak:</label><br>
-            <input type="text" id="kontak" name="kontak" required><br><br>
+            <input type="text" id="kontak" name="kontak" placeholder="Kontak Caster" required><br><br>
             <button type="submit">Tambah Caster</button>
         </form>
 
