@@ -32,7 +32,7 @@
     <section>
     </section>
     <footer>
-        <p>&copy; 2025 ETournament. All Right Reserved.</p>
+        <p>&copy; 2025 ETournament | Kelompok 3. All Right Reserved.</p>
     </footer>
 </body>
 </html>
