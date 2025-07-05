@@ -7,9 +7,12 @@
     <title>ETournament</title>
 </head>
 <body>
+
      <header>
         <h1>ETournament</h1>
     </header>
+
+    <!-- Navigasi menu -->
     <nav>
         <ul class="nav">
             <li><a href="index.php" class="menu">Home</a></li>
@@ -18,9 +21,11 @@
             <li><a href="about.php" class="menu">About</a></li>
         </ul>
     </nav>
+
     <main>
     <h2>Selamat Datang Di Website ETournament</h2>
     <h2>Daftar Turnamen Esport</h2>
+    <!-- Tabel daftar turnamen -->
     <table border="1" cellpadding="10" cellspacing="0" align="center">
         <thead>
         <tr>
@@ -52,11 +57,13 @@
         </tbody>
     </table>
     </main>
+
     <section>
     </section>
+
     <footer>
-        <p>&copy; 2025 ETournament. All Right Reserved.</p>
+        <p>&copy; 2025 ETournament | Kelompok 3 - All Right Reserved.</p>
     </footer>
-    <script url="script.js"></script>
+    
 </body>
 </html>

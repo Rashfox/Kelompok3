@@ -7,9 +7,12 @@
     <title>ETournament</title>
 </head>
 <body>
+
      <header>
         <h1>ETournament</h1>
     </header>
+
+    <!-- Navigasi menu -->
     <nav>
         <ul class="nav">
             <li><a href="index.php" class="menu">Home</a></li>
@@ -18,6 +21,7 @@
             <li><a href="about.php" class="menu">About</a></li>
         </ul>
     </nav>
+
     <main class="about">
         <h2>Tentang ETournament</h2>
         <p>ETournament adalah platform yang dirancang untuk mengelola turnamen esports secara efisien. Dengan fitur manajemen caster dan panitia, ETournament memudahkan penyelenggaraan turnamen dengan sistem yang terstruktur.</p>
@@ -29,10 +33,10 @@
             <li>Antarmuka yang User-Friendly: Desain yang sederhana dan mudah digunakan untuk semua pengguna.</li>
         </ul>
     </main>
-    <section>
-    </section>
+
     <footer>
-        <p>&copy; 2025 ETournament. All Right Reserved.</p>
+        <p>&copy; 2025 ETournament | Kelompok 3 - All Right Reserved.</p>
     </footer>
+
 </body>
 </html>

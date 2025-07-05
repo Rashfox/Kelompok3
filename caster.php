@@ -1,25 +1,28 @@
 <?php
 session_start();
-require_once 'function.php';
+require_once 'function.php'; // Memanggil file function.php
 
-// Inisialisasi list jika belum ada
+// Inisialisasi list caster jika belum ada
 if (!isset($_SESSION['caster_list'])) {
     $_SESSION['caster_list'] = serialize(new CasterCircularList());
 }
 
 $casterList = unserialize($_SESSION['caster_list']);
 
-// Tangani aksi form
+// Proses aksi dari form yang dikirim melalui method post
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'];
 
     if ($action === 'add') {
-        $nama = $_POST['nama'];
+        // Aksi menambahkan caster dengan mengambil inputan dari form
+        $nama = $_POST['nama']; 
         $kontak = $_POST['kontak'];
-        $casterList->add(['nama' => $nama, 'kontak' => $kontak]);
+        $casterList->add(['nama' => $nama, 'kontak' => $kontak]); // tambahkan data ke dalam list
     } elseif ($action === 'rotate') {
+        // Aksi memutar urutan caster
         $casterList->rotate();
     } elseif ($action === 'delete') {
+        // Aksi menghapus caster
         $nama = $_POST['nama'];
         $kontak = $_POST['kontak'];
 
@@ -50,9 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>ETournament</title>
 </head>
 <body>
+
     <header>
         <h1>ETournament</h1>
     </header>
+
+    <!-- Navigasi menu -->
     <nav>
         <ul class="nav">
             <li><a href="index.php" class="menu">Home</a></li>
@@ -61,8 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li><a href="about.php" class="menu">About</a></li>
         </ul>
     </nav>
-    <main>
+    
+    <main class="caster_panitia">
         <h2>Manajemen Caster</h2>
+        <!-- Form tambah caster -->
         <form action="caster.php" method="post">
             <input type="hidden" name="action" value="add">
             <label for="nama">Nama Caster:</label><br>
@@ -73,32 +81,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
 
         <h3>Daftar Caster</h3>
-        <ul>
+        <ul class="dft_caster_panitia">
             <?php
             $casters = $casterList->display();
             if (empty($casters)) {
-                echo "<li>Belum ada caster ditambahkan.</li>";
+                echo "<li>Belum ada caster yang ditambahkan.</li>";
             } else {
                 foreach ($casters as $c) {
-                    echo "<li>Nama: " . htmlspecialchars($c['nama']) . " | Kontak: " . htmlspecialchars($c['kontak']);
-                    echo " 
-                        <form action='caster.php' method='post' style='display:inline'>
-                            <input type='hidden' name='action' value='delete'>
-                            <input type='hidden' name='nama' value='" . htmlspecialchars($c['nama']) . "'>
-                            <input type='hidden' name='kontak' value='" . htmlspecialchars($c['kontak']) . "'>
-                            <button type='submit'>Hapus</button>
-                        </form>
+                    echo "<li>
+                            <div class='data_caster_panitia'>Nama: " . htmlspecialchars($c['nama']) . " | Kontak: " . htmlspecialchars($c['kontak'])."
+                            <form action='caster.php' method='post' style='display:inline'>
+                                <input type='hidden' name='action' value='delete'>
+                                <input type='hidden' name='nama' value='" . htmlspecialchars($c['nama']) . "'>
+                                <input type='hidden' name='kontak' value='" . htmlspecialchars($c['kontak']) . "'>
+                            <button type='submit' class='btn-delete'>Hapus</button>
+                        </form></div>
                     </li>";
                 }
             }
             ?>
         </ul>
 
+        <!-- Tombol untuk memutar urutan caster -->
         <form action="caster.php" method="post" style="margin-top: 20px;">
             <input type="hidden" name="action" value="rotate">
             <button type="submit">Putar Caster</button>
         </form>
-
+        
+        <!-- Menampilkan caster saat ini -->
         <h3>Caster Saat Ini:</h3>
         <p>
             <?php
@@ -109,8 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
         </p>
     </main>
+
     <footer>
-        <p>&copy; 2025 ETournament. All Right Reserved.</p>
+        <p>&copy; 2025 ETournament | Kelompok 3 - All Right Reserved.</p>
     </footer>
+
 </body>
 </html>
