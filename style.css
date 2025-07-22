@@ -156,7 +156,7 @@ ul.dft_caster_panitia {
     background-color: #c0392b;
 }
 @media screen and (max-width:450px){
-  .table{
+  table{
     width: 40%;
   }
 }
