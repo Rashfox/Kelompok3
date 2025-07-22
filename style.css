@@ -155,3 +155,8 @@ ul.dft_caster_panitia {
 .btn-delete:hover {
     background-color: #c0392b;
 }
+@media max-width(400px){
+  .table{
+    width: 40%;
+  }
+}
